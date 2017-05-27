@@ -58,3 +58,7 @@ cmake-build-debug/
 
 *[123]
 *_API4
+*client
+*server
+*queue
+*worker

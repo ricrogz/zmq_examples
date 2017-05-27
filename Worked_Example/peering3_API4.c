@@ -27,7 +27,7 @@ client_task (zsock_t *pipe, void *args)
     zpoller_t *poller = zpoller_new(pipe, client, NULL);
 
     while (!zsys_interrupted) {
-        zclock_sleep ((uint) randof (5));
+        zclock_sleep ((uint) randof (5) * 1000);
         int burst = randof (15);
         while (burst--) {
             char task_id [5];
@@ -102,7 +102,7 @@ worker_task (zsock_t *pipe, void * args)
             break;              //  Interrupted
 
         //  Workers are busy for 0/1 seconds
-        zclock_sleep((uint) randof (2));
+        zclock_sleep((uint) randof (2) * 1000);
         zmsg_send(&msg, worker);
     }
     zpoller_destroy(&poller);

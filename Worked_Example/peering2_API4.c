@@ -47,7 +47,7 @@ client_task (zsock_t *pipe, void *args)
 
         printf("Client %s: %s\n", client_id, reply);
         free(reply);
-        zclock_sleep(1);
+        zclock_sleep(1000);
     }
     zsock_destroy(&client);
     zmq_ctx_destroy (&ctx);
